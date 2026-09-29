@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Ten practical HTML projects, from a personal profile to an accessible multi-page website."
+    />
+    <title>Real-World HTML Projects - Field Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="brand" href="#top" aria-label="Field Notes, home"
+        ><span class="brand-mark" aria-hidden="true">H</span
+        ><span>Markup Field Notes</span></a
+      >
+      <span class="edition">WEB FOUNDATIONS / 04</span>
+    </header>
+    <nav class="course-nav" aria-label="HTML course levels">
+      <div class="course-nav-inner">
+        <span class="course-label">Course levels</span>
+        <a href="../html-basics/index.html">1. Basics</a>
+        <a href="../html-intermediate/index.html">2. Intermediate</a>
+        <a href="../html-advanced/index.html">3. Advanced</a>
+        <a href="../html-real-world/index.html" aria-current="page"
+          >4. Real-world</a
+        >
+      </div>
+    </nav>
+
+    <div class="layout" id="top">
+      <nav class="contents" aria-label="Project contents">
+        <div class="contents-label">Project list</div>
+        <ol>
+          <li><a href="#profile">01 &nbsp; Personal profile</a></li>
+          <li><a href="#resume">02 &nbsp; Resume / CV</a></li>
+          <li><a href="#registration">03 &nbsp; Registration form</a></li>
+          <li><a href="#restaurant">04 &nbsp; Restaurant website</a></li>
+          <li><a href="#blog">05 &nbsp; Blog page</a></li>
+          <li><a href="#product">06 &nbsp; Product page</a></li>
+          <li><a href="#portfolio">07 &nbsp; Portfolio</a></li>
+          <li><a href="#landing">08 &nbsp; Landing page</a></li>
+          <li><a href="#multi-page">09 &nbsp; Multi-page website</a></li>
+          <li>
+            <a href="#accessibility-seo">10 &nbsp; Accessibility and SEO</a>
+          </li>
+        </ol>
+      </nav>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <div class="eyebrow">Level 4 / Real-world HTML</div>
+          <h1 id="page-title">From markup to useful pages.</h1>
+          <p class="intro-copy">
+            Ten small project briefs to help turn HTML skills into real pages.
+            Start with the content and structure, then add CSS, images, and
+            behavior where they improve the experience.
+          </p>
+          <div class="quick-note">
+            <strong>How to use these</strong
+            ><span
+              >Each snippet is a starting point for the project's main content,
+              not a complete website. Put it inside a full HTML document and
+              adapt the content to a real audience.</span
+            >
+          </div>
+          <ul class="project-links" aria-label="Earlier lessons">
+            <li>
+              <a href="../html-basics/index.html">Level 1: HTML Basics</a>
+            </li>
+            <li>
+              <a href="../html-intermediate/index.html"
+                >Level 2: Intermediate HTML</a
+              >
+            </li>
+            <li>
+              <a href="../html-advanced/index.html">Level 3: Advanced HTML</a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="project" id="profile">
+          <div class="project-head">
+            <span class="project-number">01</span>
+            <h2>Build a personal profile page</h2>
+          </div>
+          <p>
+            <strong>Goal:</strong> introduce one person, their interests, and a
+            way to contact them. Use one clear main heading, a short biography,
+            and useful links.
+          </p>
+          <pre><code><span class="tag">&lt;main&gt;</span>
+  <span class="tag">&lt;article&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>Jordan Lee<span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="value">"images/jordan.jpg"</span>
+      <span class="attr">alt</span>=<span class="value">"Jordan Lee outdoors beside a trail"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;p&gt;</span>I design small, accessible websites in Seattle.<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;h2&gt;</span>What I enjoy<span class="tag">&lt;/h2&gt;</span>
+    <span class="tag">&lt;ul&gt;</span><span class="tag">&lt;li&gt;</span>Hiking<span class="tag">&lt;/li&gt;&lt;/ul&gt;</span>
+  <span class="tag">&lt;/article&gt;</span>
+<span class="tag">&lt;/main&gt;</span></code></pre>
+          <p class="tip">
+            Use an image only if it adds context, and write alt text that
+            describes what matters in that context.
+          </p>
+        </section>
+
+        <section class="project" id="resume">
+          <div class="project-head">
+            <span class="project-number">02</span>
+            <h2>Build a resume / CV</h2>
+          </div>
+          <p>
+            <strong>Goal:</strong> make qualifications easy to scan. Organize
+            experience, education, and skills under descriptive headings. Use
+            lists for responsibilities and dates for time periods.
+          </p>
+          <pre><code><span class="tag">&lt;section</span> <span class="attr">aria-labelledby</span>=<span class="value">"experience-title"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;h2</span> <span class="attr">id</span>=<span class="value">"experience-title"</span><span class="tag">&gt;</span>Experience<span class="tag">&lt;/h2&gt;</span>
+  <span class="tag">&lt;article&gt;</span>
+    <span class="tag">&lt;h3&gt;</span>Web designer, Northwind Studio<span class="tag">&lt;/h3&gt;</span>
+    <span class="tag">&lt;p&gt;&lt;time</span> <span class="attr">datetime</span>=<span class="value">"2022-04"</span><span class="tag">&gt;</span>April 2022<span class="tag">&lt;/time&gt;</span>–Present<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;ul&gt;&lt;li&gt;</span>Created accessible page templates.<span class="tag">&lt;/li&gt;&lt;/ul&gt;</span>
+  <span class="tag">&lt;/article&gt;</span>
+<span class="tag">&lt;/section&gt;</span></code></pre>
+          <p class="tip">
+            Keep dates honest and consistent. If you offer a downloadable PDF,
+            also make the HTML page readable and usable on its own.
+          </p>
+        </section>
+
+        <section class="project" id="registration">
+          <div class="project-head">
+            <span class="project-number">03</span>
+            <h2>Build a registration form</h2>
+          </div>
+          <p>
+            <strong>Goal:</strong> collect only the information the service
+            needs. Label every control, group related choices, explain required
+            fields, and make errors clear.
+          </p>
+          <pre><code><span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="value">"/register"</span> <span class="attr">method</span>=<span class="value">"post"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"email"</span><span class="tag">&gt;</span>Email address<span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"email"</span> <span class="attr">name</span>=<span class="value">"email"</span>
+    <span class="attr">type</span>=<span class="value">"email"</span> <span class="attr">autocomplete</span>=<span class="value">"email"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="value">"submit"</span><span class="tag">&gt;</span>Create account<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span></code></pre>
+          <p>
+            HTML provides basic browser validation, but registration needs a
+            secure server endpoint, server-side validation, and a safe approach
+            to passwords and personal data.
+          </p>
+        </section>
+
+        <section class="project" id="restaurant">
+          <div class="project-head">
+            <span class="project-number">04</span>
+            <h2>Build a restaurant website</h2>
+          </div>
+          <p>
+            <strong>Goal:</strong> help visitors decide where and when to eat.
+            Put the restaurant name, location, hours, menu, and
+            reservation/contact details where people can find them.
+          </p>
+          <pre><code><span class="tag">&lt;main&gt;</span>
+  <span class="tag">&lt;h1&gt;</span>Juniper Table<span class="tag">&lt;/h1&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Seasonal cooking in the heart of town.<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;section</span> <span class="attr">aria-labelledby</span>=<span class="value">"hours-title"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;h2</span> <span class="attr">id</span>=<span class="value">"hours-title"</span><span class="tag">&gt;</span>Hours<span class="tag">&lt;/h2&gt;</span>
+    <span class="tag">&lt;p&gt;</span>Tuesday–Sunday, 5–10 pm<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;/section&gt;</span>
+  <span class="tag">&lt;address&gt;</span>14 Market Street, Portland<span class="tag">&lt;/address&gt;</span>
+<span class="tag">&lt;/main&gt;</span></code></pre>
+          <p class="tip">
+            Keep hours, address, prices, and reservation details current. Use a
+            real menu and clear dietary information instead of relying on text
+            embedded in images.
+          </p>
+        </section>
+
+        <section class="project" id="blog">
+          <div class="project-head">
+            <span class="project-number">05</span>
+            <h2>Build a blog page</h2>
+          </div>
+          <p>
+            <strong>Goal:</strong> present a post and help readers discover
+            related writing. Each post should have a meaningful title,
+            author/date details, readable sections, and links with descriptive
+            text.
+          </p>
+          <pre><code><span class="tag">&lt;article&gt;</span>
+  <span class="tag">&lt;header&gt;</span>
+    <span class="tag">&lt;p&gt;</span>Field Journal<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>Starting a balcony garden<span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;p&gt;</span>By Sam Chen ·
+      <span class="tag">&lt;time</span> <span class="attr">datetime</span>=<span class="value">"2026-05-12"</span><span class="tag">&gt;</span>May 12, 2026<span class="tag">&lt;/time&gt;</span>
+    <span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;/header&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Begin with the light your balcony receives...<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;h2&gt;</span>Choose a few reliable plants<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;/article&gt;</span></code></pre>
+          <p>
+            For a blog index, use a list of article previews that link to full
+            posts. Keep the page title and each post title distinct.
+          </p>
+        </section>
+
+        <section class="project" id="product">
+          <div class="project-head">
+            <span class="project-number">06</span>
+            <h2>Build a product page</h2>
+          </div>
+          <p>
+            <strong>Goal:</strong> give shoppers enough accurate information to
+            compare and decide. Include the product name, useful images, price,
+            options, availability, and a clear purchase action.
+          </p>
+          <pre><code><span class="tag">&lt;main&gt;</span>
+  <span class="tag">&lt;article&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>Field Notebook<span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;p&gt;</span>Recycled paper, 160 pages, A5 size.<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;p&gt;&lt;data</span> <span class="attr">value</span>=<span class="value">"18.00"</span><span class="tag">&gt;</span>$18.00<span class="tag">&lt;/data&gt;&lt;/p&gt;</span>
+    <span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="value">"/cart"</span> <span class="attr">method</span>=<span class="value">"post"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="value">"hidden"</span> <span class="attr">name</span>=<span class="value">"product"</span> <span class="attr">value</span>=<span class="value">"field-notebook"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="value">"submit"</span><span class="tag">&gt;</span>Add to cart<span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;/form&gt;</span>
+  <span class="tag">&lt;/article&gt;</span>
+<span class="tag">&lt;/main&gt;</span></code></pre>
+          <p class="tip">
+            A real cart requires server-side product and price checks. Never
+            trust a price or product identifier just because it came from a
+            form.
+          </p>
+        </section>
+
+        <section class="project" id="portfolio">
+          <div class="project-head">
+            <span class="project-number">07</span>
+            <h2>Build a portfolio</h2>
+          </div>
+          <p>
+            <strong>Goal:</strong> show a focused selection of work and explain
+            your role in each project. Make project previews link to case
+            studies, and include outcomes or decisions rather than a wall of
+            images.
+          </p>
+          <pre><code><span class="tag">&lt;section</span> <span class="attr">aria-labelledby</span>=<span class="value">"work-title"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;h2</span> <span class="attr">id</span>=<span class="value">"work-title"</span><span class="tag">&gt;</span>Selected work<span class="tag">&lt;/h2&gt;</span>
+  <span class="tag">&lt;article&gt;</span>
+    <span class="tag">&lt;h3&gt;&lt;a</span> <span class="attr">href</span>=<span class="value">"projects/library.html"</span><span class="tag">&gt;</span>Library wayfinding<span class="tag">&lt;/a&gt;&lt;/h3&gt;</span>
+    <span class="tag">&lt;p&gt;</span>I redesigned the library's mobile navigation...<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;/article&gt;</span>
+<span class="tag">&lt;/section&gt;</span></code></pre>
+          <p>
+            Choose real, representative work and credit collaborators. Make
+            contact information easy to find without exposing details you do not
+            want public.
+          </p>
+        </section>
+
+        <section class="project" id="landing">
+          <div class="project-head">
+            <span class="project-number">08</span>
+            <h2>Build a landing page</h2>
+          </div>
+          <p>
+            <strong>Goal:</strong> help one audience take one primary action.
+            State the offer clearly, explain important details, and make the
+            next step easy to identify without misleading claims.
+          </p>
+          <pre><code><span class="tag">&lt;main&gt;</span>
+  <span class="tag">&lt;section</span> <span class="attr">aria-labelledby</span>=<span class="value">"event-title"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;p&gt;</span>Community workshop · June 18<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;h1</span> <span class="attr">id</span>=<span class="value">"event-title"</span><span class="tag">&gt;</span>Make a small garden thrive<span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;p&gt;</span>A hands-on afternoon for first-time growers.<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="value">"#registration"</span><span class="tag">&gt;</span>Reserve a place<span class="tag">&lt;/a&gt;</span>
+  <span class="tag">&lt;/section&gt;</span>
+<span class="tag">&lt;/main&gt;</span></code></pre>
+          <p class="tip">
+            The action should lead somewhere real. If it is a form, make the
+            required information, privacy expectations, and submission result
+            clear.
+          </p>
+        </section>
+
+        <section class="project" id="multi-page">
+          <div class="project-head">
+            <span class="project-number">09</span>
+            <h2>Build a multi-page website</h2>
+          </div>
+          <p>
+            <strong>Goal:</strong> divide a larger site into pages with clear
+            responsibilities and consistent navigation. Use ordinary links with
+            relative paths, and give every page a unique title and main heading.
+          </p>
+          <pre><code>site/
+├── index.html
+├── about.html
+├── contact.html
+├── css/
+│   └── site.css
+└── images/
+    └── studio.jpg
+
+<span class="comment">&lt;!-- From about.html, link to another page --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="value">"contact.html"</span><span class="tag">&gt;</span>Contact<span class="tag">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- From a page in a subfolder, go up one level --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="value">"stylesheet"</span> <span class="attr">href</span>=<span class="value">"../css/site.css"</span><span class="tag">&gt;</span></code></pre>
+          <p>
+            Keep navigation labels consistent, verify every path after moving
+            files, and make it possible to reach the main sections without
+            relying on JavaScript.
+          </p>
+        </section>
+
+        <section class="project" id="accessibility-seo">
+          <div class="project-head">
+            <span class="project-number">10</span>
+            <h2>Make pages accessible and SEO-friendly</h2>
+          </div>
+          <p>
+            <strong>Goal:</strong> make content understandable, discoverable,
+            and usable by people with different devices and abilities.
+            Accessibility and SEO both benefit from clear content and a
+            well-organized document.
+          </p>
+          <ul>
+            <li>
+              Set the document language and write a unique, useful page title.
+            </li>
+            <li>
+              Use one clear main heading, meaningful subheadings, and semantic
+              landmarks.
+            </li>
+            <li>
+              Give form fields labels, images useful alternatives, and links
+              descriptive text.
+            </li>
+            <li>
+              Check keyboard operation, visible focus, color contrast, and
+              mobile layout.
+            </li>
+            <li>Validate the HTML, test links, and keep metadata accurate.</li>
+          </ul>
+          <pre><code><span class="tag">&lt;body&gt;</span>
+  <span class="tag">&lt;a</span> <span class="attr">class</span>=<span class="value">"skip-link"</span> <span class="attr">href</span>=<span class="value">"#main"</span><span class="tag">&gt;</span>Skip to main content<span class="tag">&lt;/a&gt;</span>
+  <span class="tag">&lt;header&gt;</span>...<span class="tag">&lt;/header&gt;</span>
+  <span class="tag">&lt;nav</span> <span class="attr">aria-label</span>=<span class="value">"Main navigation"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/nav&gt;</span>
+  <span class="tag">&lt;main</span> <span class="attr">id</span>=<span class="value">"main"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/main&gt;</span>
+  <span class="tag">&lt;footer&gt;</span>...<span class="tag">&lt;/footer&gt;</span>
+<span class="tag">&lt;/body&gt;</span></code></pre>
+          <p class="tip">
+            Automated checks help catch issues, but they cannot replace keyboard
+            testing, content review, and testing with assistive technology.
+          </p>
+        </section>
+
+        <aside class="closing">
+          <strong>Choose one project and finish it</strong>
+          <p>
+            Write the content first, build a semantic HTML skeleton, check the
+            links and labels, then add styling and interaction. A small finished
+            page teaches more than ten unfinished templates.
+          </p>
+        </aside>
+        <footer>FIELD NOTES / REAL-WORLD HTML / END OF LESSON 04</footer>
+      </main>
+    </div>
+  </body>
+</html>

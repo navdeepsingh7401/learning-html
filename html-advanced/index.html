@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Advanced HTML notes on modern elements, accessibility, structured data, storage, graphics, and performance."
+    />
+    <title>Advanced HTML - Field Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="brand" href="#top" aria-label="Field Notes, home"
+        ><span class="brand-mark" aria-hidden="true">H</span
+        ><span>Markup Field Notes</span></a
+      >
+      <span class="edition">WEB FOUNDATIONS / 03</span>
+    </header>
+    <nav class="course-nav" aria-label="HTML course levels">
+      <div class="course-nav-inner">
+        <span class="course-label">Course levels</span>
+        <a href="../html-basics/index.html">1. Basics</a>
+        <a href="../html-intermediate/index.html">2. Intermediate</a>
+        <a href="../html-advanced/index.html" aria-current="page"
+          >3. Advanced</a
+        >
+        <a href="../html-real-world/index.html">4. Real-world</a>
+      </div>
+    </nav>
+
+    <div class="layout" id="top">
+      <nav class="contents" aria-label="Lesson contents">
+        <div class="contents-label">On this page</div>
+        <ol>
+          <li><a href="#html5">01 &nbsp; HTML5 features</a></li>
+          <li><a href="#advanced-forms">02 &nbsp; Advanced forms</a></li>
+          <li>
+            <a href="#interactive-elements">03 &nbsp; Interactive elements</a>
+          </li>
+          <li><a href="#figures">04 &nbsp; Figure and caption</a></li>
+          <li><a href="#picture">05 &nbsp; Responsive images</a></li>
+          <li><a href="#source">06 &nbsp; Source and formats</a></li>
+          <li><a href="#meta">07 &nbsp; Meta tags</a></li>
+          <li><a href="#seo">08 &nbsp; SEO structure</a></li>
+          <li><a href="#accessibility">09 &nbsp; Accessibility and ARIA</a></li>
+          <li><a href="#keyboard">10 &nbsp; Keyboard access</a></li>
+          <li><a href="#validation">11 &nbsp; HTML validation</a></li>
+          <li><a href="#schema">12 &nbsp; Structured data</a></li>
+          <li><a href="#storage">13 &nbsp; Web storage</a></li>
+          <li><a href="#canvas">14 &nbsp; Canvas</a></li>
+          <li><a href="#svg">15 &nbsp; SVG</a></li>
+          <li><a href="#enhancement">16 &nbsp; Progressive enhancement</a></li>
+          <li><a href="#performance">17 &nbsp; Performance</a></li>
+        </ol>
+      </nav>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <div class="eyebrow">Level 3 / Advanced HTML</div>
+          <h1 id="page-title">Make the browser work with you.</h1>
+          <p class="intro-copy">
+            Explore modern browser features and the craft around production
+            HTML: accessibility, meaningful metadata, robust fallbacks, and
+            thoughtful performance.
+          </p>
+          <div class="quick-note">
+            <strong>Advanced means intentional</strong
+            ><span
+              >Prefer native HTML first. Add ARIA, JavaScript, and custom
+              behavior only when they solve a real need and remain usable
+              without a mouse.</span
+            >
+          </div>
+        </section>
+
+        <section class="lesson" id="html5">
+          <div class="lesson-head">
+            <span class="lesson-number">01</span>
+            <h2>HTML5 features</h2>
+          </div>
+          <p>
+            HTML5 brought a modern standard for the web's markup, including
+            semantic page elements, native audio and video, richer form
+            controls, and graphics with canvas and SVG. The standard continues
+            to evolve, so HTML is not a frozen list of features.
+          </p>
+          <p>
+            Use built-in elements and browser behavior when they fit. Native
+            controls often provide keyboard support and accessibility behavior
+            without extra scripting.
+          </p>
+        </section>
+
+        <section class="lesson" id="advanced-forms">
+          <div class="lesson-head">
+            <span class="lesson-number">02</span>
+            <h2>Advanced form elements</h2>
+          </div>
+          <p>
+            Group related controls with <code>&lt;fieldset&gt;</code> and
+            describe the group with <code>&lt;legend&gt;</code>. Elements such
+            as <code>&lt;output&gt;</code>, <code>&lt;progress&gt;</code>, and
+            <code>&lt;meter&gt;</code> communicate calculated results, task
+            progress, and measurements.
+          </p>
+          <pre><code><span class="tag">&lt;fieldset&gt;</span>
+  <span class="tag">&lt;legend&gt;</span>Shipping address<span class="tag">&lt;/legend&gt;</span>
+  <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"postal-code"</span><span class="tag">&gt;</span>Postal code<span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"postal-code"</span> <span class="attr">name</span>=<span class="value">"postal-code"</span> <span class="attr">autocomplete</span>=<span class="value">"postal-code"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/fieldset&gt;</span>
+<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"upload-progress"</span><span class="tag">&gt;</span>Upload progress<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;progress</span> <span class="attr">id</span>=<span class="value">"upload-progress"</span> <span class="attr">value</span>=<span class="value">"3"</span> <span class="attr">max</span>=<span class="value">"5"</span><span class="tag">&gt;</span>3 of 5<span class="tag">&lt;/progress&gt;</span></code></pre>
+          <p class="tip">
+            A progress element needs a changing value to reflect real progress.
+            A meter is for a known range, such as disk usage, not an in-progress
+            task.
+          </p>
+        </section>
+
+        <section class="lesson" id="interactive-elements">
+          <div class="lesson-head">
+            <span class="lesson-number">03</span>
+            <h2>
+              <code>&lt;datalist&gt;</code>, <code>&lt;details&gt;</code>,
+              <code>&lt;summary&gt;</code>, <code>&lt;dialog&gt;</code>
+            </h2>
+          </div>
+          <p>
+            <code>&lt;datalist&gt;</code> suggests values for an input without
+            limiting the user to those options.
+            <code>&lt;details&gt;</code> creates a disclosure region; its first
+            child <code>&lt;summary&gt;</code> is the visible label. A
+            <code>&lt;dialog&gt;</code> can show a modal or non-modal dialog.
+          </p>
+          <pre><code><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"city"</span><span class="tag">&gt;</span>City<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"city"</span> <span class="attr">list</span>=<span class="value">"cities"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;datalist</span> <span class="attr">id</span>=<span class="value">"cities"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="value">"Toronto"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="value">"Vancouver"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/datalist&gt;</span>
+
+<span class="tag">&lt;details&gt;</span>
+  <span class="tag">&lt;summary&gt;</span>Shipping details<span class="tag">&lt;/summary&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Orders ship in two business days.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/details&gt;</span>
+
+<span class="tag">&lt;dialog</span> <span class="attr">id</span>=<span class="value">"notice"</span><span class="tag">&gt;</span>Saved successfully.<span class="tag">&lt;/dialog&gt;</span>
+<span class="comment">&lt;!-- JavaScript can call notice.showModal() and notice.close(). --&gt;</span></code></pre>
+          <p class="tip">
+            Use dialog methods instead of adding <code>open</code> for a modal.
+            When opening one with JavaScript, manage focus and provide a clear
+            way to close it.
+          </p>
+        </section>
+
+        <section class="lesson" id="figures">
+          <div class="lesson-head">
+            <span class="lesson-number">04</span>
+            <h2>
+              <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code>
+            </h2>
+          </div>
+          <p>
+            Use <code>&lt;figure&gt;</code> for self-contained content that is
+            referenced from the main text, such as a photo, diagram, or code
+            sample. A <code>&lt;figcaption&gt;</code> gives that content a
+            caption.
+          </p>
+          <pre><code><span class="tag">&lt;figure&gt;</span>
+  <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="value">"images/seedlings.jpg"</span>
+    <span class="attr">alt</span>=<span class="value">"Seedlings growing in a tray"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;figcaption&gt;</span>Seedlings, two weeks after planting.<span class="tag">&lt;/figcaption&gt;</span>
+<span class="tag">&lt;/figure&gt;</span></code></pre>
+        </section>
+
+        <section class="lesson" id="picture">
+          <div class="lesson-head">
+            <span class="lesson-number">05</span>
+            <h2><code>&lt;picture&gt;</code> and responsive images</h2>
+          </div>
+          <p>
+            <code>&lt;picture&gt;</code> lets the browser choose among alternate
+            image files, often by format or viewport width. Put one or more
+            <code>&lt;source&gt;</code> elements before a fallback
+            <code>&lt;img&gt;</code>. The <code>alt</code> text belongs on that
+            <code>&lt;img&gt;</code>.
+          </p>
+          <pre><code><span class="tag">&lt;picture&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">srcset</span>=<span class="value">"images/plant-wide.webp"</span> <span class="attr">media</span>=<span class="value">"(min-width: 800px)"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">srcset</span>=<span class="value">"images/plant-small.webp"</span> <span class="attr">type</span>=<span class="value">"image/webp"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="value">"images/plant-small.jpg"</span>
+    <span class="attr">alt</span>=<span class="value">"A young tomato plant beside a window"</span>
+    <span class="attr">width</span>=<span class="value">"640"</span> <span class="attr">height</span>=<span class="value">"480"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/picture&gt;</span></code></pre>
+          <p class="tip">
+            For the same image at different resolutions, <code>srcset</code> and
+            <code>sizes</code> on <code>&lt;img&gt;</code> let the browser
+            choose an appropriate file. Include width and height to reserve
+            space while it loads.
+          </p>
+        </section>
+
+        <section class="lesson" id="source">
+          <div class="lesson-head">
+            <span class="lesson-number">06</span>
+            <h2><code>&lt;source&gt;</code> and media formats</h2>
+          </div>
+          <p>
+            <code>&lt;source&gt;</code> provides alternative files inside
+            <code>&lt;picture&gt;</code>, <code>&lt;audio&gt;</code>, or
+            <code>&lt;video&gt;</code>. Use accurate MIME types so the browser
+            can decide what it supports. Offer a broadly supported fallback
+            where practical.
+          </p>
+          <pre><code><span class="tag">&lt;video</span> <span class="attr">controls</span> <span class="attr">width</span>=<span class="value">"640"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"media/demo.webm"</span> <span class="attr">type</span>=<span class="value">"video/webm"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"media/demo.mp4"</span> <span class="attr">type</span>=<span class="value">"video/mp4"</span><span class="tag">&gt;</span>
+  Your browser does not support this video.
+<span class="tag">&lt;/video&gt;</span></code></pre>
+          <p class="tip">
+            Choose formats based on your audience and media pipeline, and
+            provide captions or transcripts when the content needs them.
+          </p>
+        </section>
+
+        <section class="lesson" id="meta">
+          <div class="lesson-head">
+            <span class="lesson-number">07</span>
+            <h2>Meta tags</h2>
+          </div>
+          <p>
+            Metadata belongs in <code>&lt;head&gt;</code>. It describes the
+            document to browsers, search engines, and link previews; it is not a
+            substitute for clear page content.
+          </p>
+          <pre><code><span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="value">"utf-8"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="value">"viewport"</span> <span class="attr">content</span>=<span class="value">"width=device-width, initial-scale=1"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="value">"description"</span>
+  <span class="attr">content</span>=<span class="value">"A practical guide to growing herbs at home."</span><span class="tag">&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">property</span>=<span class="value">"og:title"</span> <span class="attr">content</span>=<span class="value">"The Small Garden"</span><span class="tag">&gt;</span></code></pre>
+          <p>
+            Write a distinct, accurate title and description for each page.
+            Social preview metadata such as Open Graph can control the title,
+            description, and image shown when a page is shared.
+          </p>
+        </section>
+
+        <section class="lesson" id="seo">
+          <div class="lesson-head">
+            <span class="lesson-number">08</span>
+            <h2>SEO-friendly HTML structure</h2>
+          </div>
+          <p>
+            Help search engines and readers understand the page: use a specific
+            <code>&lt;title&gt;</code>, a useful main heading, descriptive link
+            text, meaningful section headings, and semantic HTML. Keep important
+            content available as text, and use accurate image alternatives.
+          </p>
+          <pre><code><span class="tag">&lt;main&gt;</span>
+  <span class="tag">&lt;article&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>How to grow basil indoors<span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;p&gt;</span>Start with a sunny window and well-drained soil...<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;h2&gt;</span>Choose a container<span class="tag">&lt;/h2&gt;</span>
+    <span class="comment">&lt;!-- Helpful, crawlable links and relevant images go here. --&gt;</span>
+  <span class="tag">&lt;/article&gt;</span>
+<span class="tag">&lt;/main&gt;</span></code></pre>
+          <p class="tip">
+            There is no guaranteed ranking from a particular tag. Prioritize
+            helpful content, accurate metadata, accessible structure, and fast,
+            usable pages.
+          </p>
+        </section>
+
+        <section class="lesson" id="accessibility">
+          <div class="lesson-head">
+            <span class="lesson-number">09</span>
+            <h2>Accessibility and ARIA basics</h2>
+          </div>
+          <p>
+            Start with semantic HTML: native buttons, labels, headings, and
+            landmarks already expose useful roles and behavior. ARIA can add
+            accessible names or states when native HTML does not express them,
+            but it does not add behavior by itself.
+          </p>
+          <pre><code><span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="value">"button"</span> <span class="attr">aria-expanded</span>=<span class="value">"false"</span>
+  <span class="attr">aria-controls</span>=<span class="value">"account-menu"</span><span class="tag">&gt;</span>Account<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;nav</span> <span class="attr">id</span>=<span class="value">"account-menu"</span> <span class="attr">hidden</span><span class="tag">&gt;</span>...<span class="tag">&lt;/nav&gt;</span></code></pre>
+          <p>
+            If JavaScript opens the menu, it must also update
+            <code>aria-expanded</code>, show the controlled content, and support
+            keyboard interaction. Keep ARIA state in sync with the interface.
+          </p>
+          <p class="tip">
+            A useful rule: no ARIA is better than incorrect ARIA. Test with
+            keyboard and assistive technology, not only by inspecting
+            attributes.
+          </p>
+        </section>
+
+        <section class="lesson" id="keyboard">
+          <div class="lesson-head">
+            <span class="lesson-number">10</span>
+            <h2>Keyboard accessibility</h2>
+          </div>
+          <p>
+            Every interactive feature should work without a mouse. Use native
+            links and buttons, keep focus visible, follow a sensible document
+            order, and avoid positive <code>tabindex</code> values that force a
+            confusing custom sequence.
+          </p>
+          <pre><code><span class="comment">/* Keep keyboard focus visible. */</span>
+:focus-visible {
+  outline: 3px solid #24584d;
+  outline-offset: 3px;
+}
+
+<span class="comment">&lt;!-- A skip link lets keyboard users bypass repeated navigation. --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">class</span>=<span class="value">"skip-link"</span> <span class="attr">href</span>=<span class="value">"#main-content"</span><span class="tag">&gt;</span>Skip to content<span class="tag">&lt;/a&gt;</span></code></pre>
+          <p>
+            Check that Tab and Shift+Tab reach controls in a logical order,
+            Enter activates links and buttons, and Escape closes appropriate
+            dialogs. Never remove the focus outline without a clear replacement.
+          </p>
+        </section>
+
+        <section class="lesson" id="validation">
+          <div class="lesson-head">
+            <span class="lesson-number">11</span>
+            <h2>HTML validation</h2>
+          </div>
+          <p>
+            Validation checks markup against HTML syntax rules and catches
+            mistakes such as mismatched tags, invalid nesting, and duplicate
+            IDs. Validate during development, then separately test behavior and
+            accessibility.
+          </p>
+          <p>
+            Use the Nu HTML Checker or a validator built into your editor. For
+            local projects, validate the saved file or paste a small example
+            into the checker. Fix errors first, then review warnings with
+            context.
+          </p>
+          <p class="tip">
+            Valid markup is valuable, but it does not guarantee accessible,
+            secure, or well-designed behavior.
+          </p>
+        </section>
+
+        <section class="lesson" id="schema">
+          <div class="lesson-head">
+            <span class="lesson-number">12</span>
+            <h2>Structured data / Schema.org basics</h2>
+          </div>
+          <p>
+            Structured data describes a page's entities in a machine-readable
+            format. Schema.org defines shared types and properties. JSON-LD is
+            commonly placed in a script element in the document head or body.
+          </p>
+          <pre><code><span class="tag">&lt;script</span> <span class="attr">type</span>=<span class="value">"application/ld+json"</span><span class="tag">&gt;</span>
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alex Rivera",
+  "url": "https://example.com/"
+}
+<span class="tag">&lt;/script&gt;</span></code></pre>
+          <p>
+            Only describe information that is actually visible and accurate on
+            the page. Structured data may make a page eligible for certain
+            search features; it does not guarantee a rich result or higher
+            ranking.
+          </p>
+        </section>
+
+        <section class="lesson" id="storage">
+          <div class="lesson-head">
+            <span class="lesson-number">13</span>
+            <h2>Web storage basics</h2>
+          </div>
+          <p>
+            <code>localStorage</code> keeps string values for an origin across
+            browser sessions. <code>sessionStorage</code> is scoped to a tab's
+            page session. Both are accessed with JavaScript; neither is a place
+            for secrets.
+          </p>
+          <pre><code><span class="comment">// Store a small, non-sensitive preference.</span>
+localStorage.setItem("theme", "light");
+
+<span class="comment">// Read it later; getItem returns null if missing.</span>
+const theme = localStorage.getItem("theme");
+
+<span class="comment">// Remove a saved preference.</span>
+localStorage.removeItem("theme");</code></pre>
+          <p class="tip">
+            Storage can be unavailable or cleared, and data can be read or
+            changed by scripts running on the same origin. Never store
+            passwords, session tokens, or sensitive personal data there.
+          </p>
+        </section>
+
+        <section class="lesson" id="canvas">
+          <div class="lesson-head">
+            <span class="lesson-number">14</span>
+            <h2><code>&lt;canvas&gt;</code> basics</h2>
+          </div>
+          <p>
+            Canvas provides a bitmap drawing surface controlled with JavaScript.
+            It is useful for dynamic graphics, charts, and games, but its drawn
+            pixels do not automatically expose their meaning to screen readers.
+          </p>
+          <pre><code><span class="tag">&lt;canvas</span> <span class="attr">id</span>=<span class="value">"chart"</span> <span class="attr">width</span>=<span class="value">"320"</span> <span class="attr">height</span>=<span class="value">"160"</span><span class="tag">&gt;</span>
+  Monthly rainfall chart: 20, 35, and 28 millimeters.
+<span class="tag">&lt;/canvas&gt;</span>
+
+const canvas = document.querySelector("#chart");
+const context = canvas.getContext("2d");
+context.fillStyle = "#24584d";
+context.fillRect(20, 20, 80, 100);</code></pre>
+          <p>
+            Provide equivalent text or a data table for meaningful canvas
+            content. Set intrinsic width and height so the drawing surface has a
+            predictable coordinate system.
+          </p>
+        </section>
+
+        <section class="lesson" id="svg">
+          <div class="lesson-head">
+            <span class="lesson-number">15</span>
+            <h2>SVG basics</h2>
+          </div>
+          <p>
+            SVG is a resolution-independent vector format that describes shapes
+            and paths. Use an external SVG with <code>&lt;img&gt;</code> for a
+            simple graphic, or inline SVG when individual shapes need styling or
+            interaction.
+          </p>
+          <pre><code><span class="tag">&lt;svg</span> <span class="attr">viewBox</span>=<span class="value">"0 0 100 100"</span> <span class="attr">role</span>=<span class="value">"img"</span>
+  <span class="attr">aria-labelledby</span>=<span class="value">"sun-title"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;title</span> <span class="attr">id</span>=<span class="value">"sun-title"</span><span class="tag">&gt;</span>Sun<span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;circle</span> <span class="attr">cx</span>=<span class="value">"50"</span> <span class="attr">cy</span>=<span class="value">"50"</span>
+    <span class="attr">r</span>=<span class="value">"30"</span> <span class="attr">fill</span>=<span class="value">"gold"</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/svg&gt;</span></code></pre>
+          <p>
+            Give informative graphics an accessible name. If an SVG is
+            decorative, hide it from assistive technology appropriately. Keep
+            complex interactions keyboard accessible.
+          </p>
+        </section>
+
+        <section class="lesson" id="enhancement">
+          <div class="lesson-head">
+            <span class="lesson-number">16</span>
+            <h2>Progressive enhancement</h2>
+          </div>
+          <p>
+            Build the core experience with semantic HTML first, make it readable
+            with CSS, then add JavaScript as an enhancement. This gives the page
+            a useful baseline on more devices and when scripts fail or load
+            slowly.
+          </p>
+          <pre><code><span class="comment">&lt;!-- Core navigation works as ordinary links. --&gt;</span>
+<span class="tag">&lt;nav</span> <span class="attr">aria-label</span>=<span class="value">"Sections"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="value">"#contact"</span><span class="tag">&gt;</span>Contact<span class="tag">&lt;/a&gt;</span>
+<span class="tag">&lt;/nav&gt;</span>
+
+<span class="comment">&lt;!-- The contact destination exists even without JavaScript. --&gt;</span>
+<span class="tag">&lt;section</span> <span class="attr">id</span>=<span class="value">"contact"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/section&gt;</span></code></pre>
+          <p>
+            Do not make essential content depend on a script that might not run.
+            When an enhancement is interactive, provide a fallback or a clear
+            unavailable state.
+          </p>
+        </section>
+
+        <section class="lesson" id="performance">
+          <div class="lesson-head">
+            <span class="lesson-number">17</span>
+            <h2>Performance-friendly HTML</h2>
+          </div>
+          <p>
+            Help browsers fetch and lay out resources efficiently. Include image
+            dimensions, use responsive images, and lazy-load offscreen media. Do
+            not lazy-load the main image likely to appear immediately when the
+            page opens.
+          </p>
+          <pre><code><span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="value">"images/bench-800.jpg"</span>
+  <span class="attr">srcset</span>=<span class="value">"images/bench-400.jpg 400w, images/bench-800.jpg 800w"</span>
+  <span class="attr">sizes</span>=<span class="value">"(max-width: 600px) 100vw, 800px"</span>
+  <span class="attr">width</span>=<span class="value">"800"</span> <span class="attr">height</span>=<span class="value">"533"</span>
+  <span class="attr">loading</span>=<span class="value">"lazy"</span>
+  <span class="attr">alt</span>=<span class="value">"A wooden bench beneath an apple tree"</span><span class="tag">&gt;</span>
+
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="value">"app.js"</span> <span class="attr">defer</span><span class="tag">&gt;&lt;/script&gt;</span></code></pre>
+          <p>
+            Use <code>defer</code> for scripts that need the document parsed
+            first. Measure before optimizing, and avoid preloading many
+            resources because they compete for bandwidth.
+          </p>
+        </section>
+
+        <aside class="closing">
+          <strong>Build for real browsers and real people</strong>
+          <p>
+            Start with semantic markup, then verify structure, keyboard use,
+            screen-reader output, fallbacks, and loading behavior. Advanced HTML
+            is mostly careful choices, not extra tags.
+          </p>
+        </aside>
+        <footer>FIELD NOTES / ADVANCED HTML / END OF LESSON 03</footer>
+      </main>
+    </div>
+  </body>
+</html>

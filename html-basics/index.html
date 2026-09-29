@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A beginner-friendly guide to the essential building blocks of HTML."
+    />
+    <title>HTML Basics - Field Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="brand" href="#top" aria-label="Field Notes, home"
+        ><span class="brand-mark" aria-hidden="true">H</span
+        ><span>Markup Field Notes</span></a
+      >
+      <span class="edition">WEB FOUNDATIONS / 01</span>
+    </header>
+    <nav class="course-nav" aria-label="HTML course levels">
+      <div class="course-nav-inner">
+        <span class="course-label">Course levels</span>
+        <a href="../html-basics/index.html" aria-current="page">1. Basics</a>
+        <a href="../html-intermediate/index.html">2. Intermediate</a>
+        <a href="../html-advanced/index.html">3. Advanced</a>
+        <a href="../html-real-world/index.html">4. Real-world</a>
+      </div>
+    </nav>
+
+    <div class="layout" id="top">
+      <nav class="contents" aria-label="Lesson contents">
+        <div class="contents-label">On this page</div>
+        <ol>
+          <li><a href="#what-is-html">01 &nbsp; What is HTML?</a></li>
+          <li>
+            <a href="#document-structure">02 &nbsp; Document structure</a>
+          </li>
+          <li>
+            <a href="#doctype-and-elements">03 &nbsp; Essential elements</a>
+          </li>
+          <li><a href="#headings">04 &nbsp; Headings</a></li>
+          <li><a href="#paragraphs">05 &nbsp; Paragraphs</a></li>
+          <li><a href="#formatting">06 &nbsp; Text formatting</a></li>
+          <li><a href="#comments">07 &nbsp; Comments</a></li>
+          <li><a href="#links">08 &nbsp; Links</a></li>
+          <li><a href="#images">09 &nbsp; Images</a></li>
+          <li><a href="#lists">10 &nbsp; Lists</a></li>
+          <li><a href="#breaks">11 &nbsp; Breaks and rules</a></li>
+          <li><a href="#attributes">12 &nbsp; Attributes</a></li>
+        </ol>
+      </nav>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <div class="eyebrow">Level 1 / HTML basics</div>
+          <h1 id="page-title">A first look at HTML.</h1>
+          <p class="intro-copy">
+            HTML is the set of building blocks behind every webpage. Learn what
+            the tags mean, how a page is organized, and how to describe content
+            clearly.
+          </p>
+          <div class="quick-note">
+            <strong>Keep in mind</strong
+            ><span
+              >HTML describes the meaning and structure of content. CSS controls
+              its appearance; JavaScript can make it interactive.</span
+            >
+          </div>
+        </section>
+
+        <section class="lesson" id="what-is-html">
+          <div class="lesson-head">
+            <span class="lesson-number">01</span>
+            <h2>What is HTML?</h2>
+          </div>
+          <p>
+            <strong>HTML</strong> stands for HyperText Markup Language. It uses
+            elements, written with tags, to identify parts of a page such as a
+            heading, paragraph, link, or image.
+          </p>
+          <p>
+            A tag is not a programming command: it labels content so browsers
+            and assistive technologies can understand its role. Most elements
+            have an opening tag, content, and a closing tag.
+          </p>
+          <pre><code><span class="tag">&lt;p&gt;</span>This is a paragraph.<span class="tag">&lt;/p&gt;</span></code></pre>
+          <p class="tip">
+            Here, <code>&lt;p&gt;</code> opens the paragraph and
+            <code>&lt;/p&gt;</code> closes it.
+          </p>
+        </section>
+
+        <section class="lesson" id="document-structure">
+          <div class="lesson-head">
+            <span class="lesson-number">02</span>
+            <h2>HTML document structure</h2>
+          </div>
+          <p>
+            A webpage is a document with an outer
+            <code>&lt;html&gt;</code> element. Inside it,
+            <code>&lt;head&gt;</code> holds page information and resources,
+            while <code>&lt;body&gt;</code> holds the content people see.
+          </p>
+          <pre><code><span class="tag">&lt;!doctype html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="value">"en"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="value">"utf-8"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>My first page<span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;/head&gt;</span>
+  <span class="tag">&lt;body&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>Hello, web!<span class="tag">&lt;/h1&gt;</span>
+  <span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
+          <p class="tip">
+            The browser tab gets its title from <code>&lt;title&gt;</code>. The
+            heading belongs in the body, not the head.
+          </p>
+        </section>
+
+        <section class="lesson" id="doctype-and-elements">
+          <div class="lesson-head">
+            <span class="lesson-number">03</span>
+            <h2>Doctype and essential elements</h2>
+          </div>
+          <p>
+            <code>&lt;!doctype html&gt;</code> tells the browser to use modern
+            HTML. It is a declaration, not a regular HTML element.
+          </p>
+          <p>
+            <code>&lt;html lang="en"&gt;</code> wraps the whole document; its
+            <code>lang</code> attribute tells tools which language to expect.
+            The <code>&lt;head&gt;</code> contains metadata, and the
+            <code>&lt;body&gt;</code> contains visible page content.
+          </p>
+          <p>
+            Include a character encoding and viewport setting in the head. They
+            help text display correctly and let the page fit mobile screens.
+          </p>
+          <pre><code><span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="value">"utf-8"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="value">"viewport"</span> <span class="attr">content</span>=<span class="value">"width=device-width, initial-scale=1"</span><span class="tag">&gt;</span></code></pre>
+        </section>
+
+        <section class="lesson" id="headings">
+          <div class="lesson-head">
+            <span class="lesson-number">04</span>
+            <h2>
+              Headings: <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>
+            </h2>
+          </div>
+          <p>
+            Headings label sections and show how ideas are organized. Use
+            <code>&lt;h1&gt;</code> for the page's main topic, then use
+            lower-level headings for nested sections. Choose a level for its
+            meaning, not just its size.
+          </p>
+          <pre><code><span class="tag">&lt;h1&gt;</span>My garden<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;h2&gt;</span>Plants I grow<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;h3&gt;</span>Herbs<span class="tag">&lt;/h3&gt;</span></code></pre>
+          <div class="rendered" aria-label="Rendered heading example">
+            <h3>Plants I grow</h3>
+            <p>Herbs</p>
+          </div>
+        </section>
+
+        <section class="lesson" id="paragraphs">
+          <div class="lesson-head">
+            <span class="lesson-number">05</span>
+            <h2>Paragraphs: <code>&lt;p&gt;</code></h2>
+          </div>
+          <p>
+            Wrap a paragraph of text in <code>&lt;p&gt;</code>. Browsers add
+            space around paragraphs by default. Use a new paragraph when the
+            thought changes, rather than adding repeated spaces in the source.
+          </p>
+          <pre><code><span class="tag">&lt;p&gt;</span>HTML gives content a clear structure.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;p&gt;</span>This is a second paragraph.<span class="tag">&lt;/p&gt;</span></code></pre>
+        </section>
+
+        <section class="lesson" id="formatting">
+          <div class="lesson-head">
+            <span class="lesson-number">06</span>
+            <h2>Text formatting</h2>
+          </div>
+          <p>
+            Some text elements carry meaning as well as a visual style. Prefer
+            semantic elements when the meaning matters: screen readers may
+            announce emphasis or importance differently.
+          </p>
+          <div class="columns">
+            <div class="format-sample">
+              <p>
+                <code>&lt;strong&gt;</code> means important:
+                <strong>Read this first.</strong>
+              </p>
+              <p>
+                <code>&lt;em&gt;</code> adds emphasis:
+                <em>Really important.</em>
+              </p>
+              <p>
+                <code>&lt;mark&gt;</code> highlights:
+                <mark>Find this phrase.</mark>
+              </p>
+            </div>
+            <div class="format-sample">
+              <p>
+                <code>&lt;b&gt;</code> draws attention without extra importance.
+              </p>
+              <p><code>&lt;i&gt;</code> marks an alternate voice or term.</p>
+              <p>
+                <code>&lt;u&gt;</code> marks an annotation; avoid confusion with
+                links.
+              </p>
+            </div>
+          </div>
+          <pre><code><span class="tag">&lt;p&gt;</span><span class="tag">&lt;strong&gt;</span>Important<span class="tag">&lt;/strong&gt;</span> and <span class="tag">&lt;em&gt;</span>emphasized<span class="tag">&lt;/em&gt;</span> text.<span class="tag">&lt;/p&gt;</span></code></pre>
+        </section>
+
+        <section class="lesson" id="comments">
+          <div class="lesson-head">
+            <span class="lesson-number">07</span>
+            <h2>Comments</h2>
+          </div>
+          <p>
+            Comments are notes in your HTML source. Browsers do not show them as
+            page content. Use them to leave a helpful note for someone reading
+            the code later.
+          </p>
+          <pre><code><span class="comment">&lt;!-- Add the page introduction below --&gt;</span>
+<span class="tag">&lt;p&gt;</span>Welcome to my page.<span class="tag">&lt;/p&gt;</span></code></pre>
+          <p class="tip">
+            Do not put passwords or private information in comments: anyone can
+            view the page source.
+          </p>
+        </section>
+
+        <section class="lesson" id="links">
+          <div class="lesson-head">
+            <span class="lesson-number">08</span>
+            <h2>Links: <code>&lt;a&gt;</code></h2>
+          </div>
+          <p>
+            The anchor element makes a link. Its <code>href</code> attribute
+            gives the destination, while the text between the tags tells people
+            where the link goes.
+          </p>
+          <pre><code><span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="value">"https://developer.mozilla.org/"</span><span class="tag">&gt;</span>
+  Read the MDN web docs
+<span class="tag">&lt;/a&gt;</span></code></pre>
+          <p>
+            For a link that opens a new tab, use
+            <code>target="_blank"</code> and
+            <code>rel="noopener noreferrer"</code>. Only do this when it helps
+            the reader.
+          </p>
+        </section>
+
+        <section class="lesson" id="images">
+          <div class="lesson-head">
+            <span class="lesson-number">09</span>
+            <h2>Images: <code>&lt;img&gt;</code></h2>
+          </div>
+          <p>
+            The image element embeds an image and is a
+            <strong>void element</strong>, which means it has no closing tag.
+            Give it a <code>src</code> (image location) and useful
+            <code>alt</code> text describing the image's purpose.
+          </p>
+          <pre><code><span class="tag">&lt;img</span>
+  <span class="attr">src</span>=<span class="value">"images/greenhouse.jpg"</span>
+  <span class="attr">alt</span>=<span class="value">"Seedlings growing in a sunny greenhouse"</span>
+  <span class="attr">width</span>=<span class="value">"640"</span>
+  <span class="attr">height</span>=<span class="value">"420"</span><span class="tag">&gt;</span></code></pre>
+          <p class="tip">
+            Use <code>alt=""</code> for a purely decorative image. Never leave
+            out the <code>alt</code> attribute.
+          </p>
+        </section>
+
+        <section class="lesson" id="lists">
+          <div class="lesson-head">
+            <span class="lesson-number">10</span>
+            <h2>
+              Lists: <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>,
+              <code>&lt;li&gt;</code>
+            </h2>
+          </div>
+          <p>
+            Use an unordered list when order does not matter, and an ordered
+            list when the sequence matters. Each item goes inside an
+            <code>&lt;li&gt;</code> element.
+          </p>
+          <div class="columns">
+            <div>
+              <span class="example-label">Unordered list</span>
+              <pre><code><span class="tag">&lt;ul&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Soil<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Seeds<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span></code></pre>
+            </div>
+            <div>
+              <span class="example-label">Ordered list</span>
+              <pre><code><span class="tag">&lt;ol&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Fill the pot<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Plant a seed<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="lesson" id="breaks">
+          <div class="lesson-head">
+            <span class="lesson-number">11</span>
+            <h2>Line breaks and horizontal rules</h2>
+          </div>
+          <p>
+            <code>&lt;br&gt;</code> starts a new line within the same piece of
+            text, such as an address or a poem. <code>&lt;hr&gt;</code> marks a
+            change of topic or scene. Both are void elements and have no closing
+            tags.
+          </p>
+          <pre><code><span class="tag">&lt;p&gt;</span>12 Garden Lane<span class="tag">&lt;br&gt;</span>
+Greenwich<span class="tag">&lt;br&gt;</span>
+London<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;hr&gt;</span></code></pre>
+          <p class="tip">
+            Do not use <code>&lt;br&gt;</code> to create space between
+            paragraphs. Use separate paragraphs and style their spacing with
+            CSS.
+          </p>
+        </section>
+
+        <section class="lesson" id="attributes">
+          <div class="lesson-head">
+            <span class="lesson-number">12</span>
+            <h2>Basic attributes</h2>
+          </div>
+          <p>
+            Attributes add information to an element. They go inside the opening
+            tag, usually as a name, an equals sign, and a quoted value. Common
+            examples include <code>href</code> on links, <code>src</code> and
+            <code>alt</code> on images, and <code>id</code> for a unique page
+            target.
+          </p>
+          <pre><code><span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="value">"about.html"</span> <span class="attr">id</span>=<span class="value">"about-link"</span><span class="tag">&gt;</span>
+  About this page
+<span class="tag">&lt;/a&gt;</span></code></pre>
+          <p>
+            Some attributes are global and work on many elements. For example,
+            <code>id</code> should be unique on the page, and
+            <code>class</code> can be reused to group elements for CSS or
+            JavaScript.
+          </p>
+        </section>
+
+        <aside class="closing">
+          <strong>Your first-page checklist</strong>
+          <p>
+            Start with the doctype, add <code>html</code>, <code>head</code>,
+            and <code>body</code>, then give your content meaningful structure.
+            Indent nested elements so the shape of the document is easy to
+            follow.
+          </p>
+        </aside>
+        <footer>FIELD NOTES / HTML BASICS / END OF LESSON 01</footer>
+      </main>
+    </div>
+  </body>
+</html>

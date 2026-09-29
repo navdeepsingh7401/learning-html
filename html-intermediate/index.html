@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A practical guide to intermediate HTML: tables, forms, semantic elements, media, and file paths."
+    />
+    <title>Intermediate HTML - Field Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="brand" href="#top" aria-label="Field Notes, home"
+        ><span class="brand-mark" aria-hidden="true">H</span
+        ><span>Markup Field Notes</span></a
+      >
+      <span class="edition">WEB FOUNDATIONS / 02</span>
+    </header>
+      <nav class="course-nav" aria-label="HTML course levels">
+        <div class="course-nav-inner">
+          <span class="course-label">Course levels</span>
+          <a href="../html-basics/index.html">1. Basics</a>
+          <a href="../html-intermediate/index.html" aria-current="page"
+            >2. Intermediate</a
+          >
+          <a href="../html-advanced/index.html">3. Advanced</a>
+          <a href="../html-real-world/index.html">4. Real-world</a>
+        </div>
+      </nav>
+
+    <div class="layout" id="top">
+      <nav class="contents" aria-label="Lesson contents">
+        <div class="contents-label">On this page</div>
+        <ol>
+          <li><a href="#tables">01 &nbsp; Tables</a></li>
+          <li><a href="#table-parts">02 &nbsp; Table parts</a></li>
+          <li><a href="#forms">03 &nbsp; Forms</a></li>
+          <li><a href="#input-types">04 &nbsp; Input types</a></li>
+          <li><a href="#labels">05 &nbsp; Labels and placeholders</a></li>
+          <li><a href="#choices">06 &nbsp; Radio and checkboxes</a></li>
+          <li><a href="#select-textarea">07 &nbsp; Select and textarea</a></li>
+          <li><a href="#validation">08 &nbsp; Form validation</a></li>
+          <li><a href="#div-span">09 &nbsp; Div and span</a></li>
+          <li><a href="#semantic-html">10 &nbsp; Semantic HTML</a></li>
+          <li><a href="#landmarks">11 &nbsp; Page landmarks</a></li>
+          <li><a href="#media">12 &nbsp; Audio and video</a></li>
+          <li><a href="#iframe">13 &nbsp; Iframe</a></li>
+          <li><a href="#entities">14 &nbsp; HTML entities</a></li>
+          <li><a href="#id-class">15 &nbsp; ID and class</a></li>
+          <li><a href="#paths">16 &nbsp; Paths and folders</a></li>
+        </ol>
+      </nav>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <div class="eyebrow">Level 2 / Intermediate HTML</div>
+          <h1 id="page-title">Give your pages more structure.</h1>
+          <p class="intro-copy">
+            Build on the basics with data tables, usable forms, semantic page
+            regions, media, and the paths that connect files in a project.
+          </p>
+          <div class="quick-note">
+            <strong>Before you begin</strong
+            ><span
+              >These examples show HTML structure. Forms need a server or
+              service to process submissions, and media examples need matching
+              files in your project.</span
+            >
+          </div>
+        </section>
+
+        <section class="lesson" id="tables">
+          <div class="lesson-head">
+            <span class="lesson-number">01</span>
+            <h2>Tables</h2>
+          </div>
+          <p>
+            Use a table for information arranged in rows and columns, such as a
+            schedule or comparison. Do not use tables to arrange the overall
+            layout of a page; CSS layout tools are better for that.
+          </p>
+          <p>
+            A table is created with <code>&lt;table&gt;</code>. Its rows,
+            headings, and data cells go inside it.
+          </p>
+        </section>
+
+        <section class="lesson" id="table-parts">
+          <div class="lesson-head">
+            <span class="lesson-number">02</span>
+            <h2>Table headings, rows, and cells</h2>
+          </div>
+          <p>
+            <code>&lt;tr&gt;</code> creates a table row,
+            <code>&lt;th&gt;</code> a header cell, and <code>&lt;td&gt;</code> a
+            data cell. Group header and body rows with
+            <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code>; add a
+            <code>&lt;caption&gt;</code> to describe the table.
+          </p>
+          <pre><code><span class="tag">&lt;table&gt;</span>
+  <span class="tag">&lt;caption&gt;</span>Weekly garden tasks<span class="tag">&lt;/caption&gt;</span>
+  <span class="tag">&lt;thead&gt;</span>
+    <span class="tag">&lt;tr&gt;</span>
+      <span class="tag">&lt;th</span> <span class="attr">scope</span>=<span class="value">"col"</span><span class="tag">&gt;</span>Day<span class="tag">&lt;/th&gt;</span>
+      <span class="tag">&lt;th</span> <span class="attr">scope</span>=<span class="value">"col"</span><span class="tag">&gt;</span>Task<span class="tag">&lt;/th&gt;</span>
+    <span class="tag">&lt;/tr&gt;</span>
+  <span class="tag">&lt;/thead&gt;</span>
+  <span class="tag">&lt;tbody&gt;</span>
+    <span class="tag">&lt;tr&gt;</span>
+      <span class="tag">&lt;th</span> <span class="attr">scope</span>=<span class="value">"row"</span><span class="tag">&gt;</span>Monday<span class="tag">&lt;/th&gt;</span>
+      <span class="tag">&lt;td&gt;</span>Water seedlings<span class="tag">&lt;/td&gt;</span>
+    <span class="tag">&lt;/tr&gt;</span>
+  <span class="tag">&lt;/tbody&gt;</span>
+<span class="tag">&lt;/table&gt;</span></code></pre>
+          <span class="example-label">Rendered table</span>
+          <table class="rendered-table">
+            <caption>
+              Weekly garden tasks
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Day</th>
+                <th scope="col">Task</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Monday</th>
+                <td>Water seedlings</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="tip">
+            The <code>scope</code> attribute associates each header with its row
+            or column, which helps people using screen readers.
+          </p>
+        </section>
+
+        <section class="lesson" id="forms">
+          <div class="lesson-head">
+            <span class="lesson-number">03</span>
+            <h2>Forms</h2>
+          </div>
+          <p>
+            A form collects information from a visitor. Put related controls
+            inside <code>&lt;form&gt;</code>. The <code>action</code> tells the
+            browser where to send the data, and <code>method</code> sets how it
+            is sent.
+          </p>
+          <pre><code><span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="value">"/signup"</span> <span class="attr">method</span>=<span class="value">"post"</span><span class="tag">&gt;</span>
+  <span class="comment">&lt;!-- Form controls go here --&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="value">"submit"</span><span class="tag">&gt;</span>Sign up<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span></code></pre>
+          <p class="tip">
+            This example needs a real <code>/signup</code> endpoint to receive
+            submissions. HTML alone does not store or email the data.
+          </p>
+        </section>
+
+        <section class="lesson" id="input-types">
+          <div class="lesson-head">
+            <span class="lesson-number">04</span>
+            <h2>Input types</h2>
+          </div>
+          <p>
+            The <code>type</code> attribute changes how an input works and what
+            keyboard or validation the browser provides. Common types include
+            <code>text</code>, <code>email</code>, <code>password</code>,
+            <code>number</code>, <code>date</code>, <code>file</code>, and
+            <code>submit</code>.
+          </p>
+          <pre><code><span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="value">"email"</span> <span class="attr">name</span>=<span class="value">"email"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="value">"date"</span> <span class="attr">name</span>=<span class="value">"start-date"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="value">"file"</span> <span class="attr">name</span>=<span class="value">"photo"</span><span class="tag">&gt;</span></code></pre>
+          <p class="tip">
+            For passwords and uploaded files, handle data securely on the server
+            and use HTTPS. A password input only hides characters on screen; it
+            does not encrypt the value.
+          </p>
+        </section>
+
+        <section class="lesson" id="labels">
+          <div class="lesson-head">
+            <span class="lesson-number">05</span>
+            <h2>Labels and placeholders</h2>
+          </div>
+          <p>
+            A <code>&lt;label&gt;</code> names a control. Connect it to the
+            control's unique <code>id</code> with the label's
+            <code>for</code> attribute. Clicking the label then focuses or
+            toggles its control.
+          </p>
+          <pre><code><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"full-name"</span><span class="tag">&gt;</span>Your name<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"full-name"</span> <span class="attr">name</span>=<span class="value">"name"</span>
+  <span class="attr">type</span>=<span class="value">"text"</span> <span class="attr">placeholder</span>=<span class="value">"e.g. Alex Kim"</span><span class="tag">&gt;</span></code></pre>
+          <p>
+            A placeholder is a short hint inside an empty control. It disappears
+            when someone types, so it should not replace a visible label or
+            carry essential instructions.
+          </p>
+        </section>
+
+        <section class="lesson" id="choices">
+          <div class="lesson-head">
+            <span class="lesson-number">06</span>
+            <h2>Radio buttons and checkboxes</h2>
+          </div>
+          <p>
+            Radio buttons let someone choose <strong>one</strong> option from a
+            group. Give options in the same group the same <code>name</code>.
+            Checkboxes are for independent choices; a person can select several.
+          </p>
+          <pre><code><span class="tag">&lt;p&gt;</span>Choose a delivery time:<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="value">"radio"</span> <span class="attr">name</span>=<span class="value">"delivery"</span> <span class="attr">value</span>=<span class="value">"morning"</span><span class="tag">&gt;</span>
+  Morning
+<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="value">"checkbox"</span> <span class="attr">name</span>=<span class="value">"updates"</span> <span class="attr">value</span>=<span class="value">"yes"</span><span class="tag">&gt;</span>
+  Send me updates
+<span class="tag">&lt;/label&gt;</span></code></pre>
+          <p class="tip">
+            Every choice needs a text label. Add <code>checked</code> only when
+            a default selection is genuinely appropriate.
+          </p>
+        </section>
+
+        <section class="lesson" id="select-textarea">
+          <div class="lesson-head">
+            <span class="lesson-number">07</span>
+            <h2>Select and textarea</h2>
+          </div>
+          <p>
+            Use <code>&lt;select&gt;</code> for a menu of choices and put each
+            option in an <code>&lt;option&gt;</code>. Use
+            <code>&lt;textarea&gt;</code> for multi-line text; its starting
+            dimensions use <code>rows</code> and <code>cols</code>.
+          </p>
+          <pre><code><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"topic"</span><span class="tag">&gt;</span>Choose a topic<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;select</span> <span class="attr">id</span>=<span class="value">"topic"</span> <span class="attr">name</span>=<span class="value">"topic"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="value">"plants"</span><span class="tag">&gt;</span>Plants<span class="tag">&lt;/option&gt;</span>
+  <span class="tag">&lt;option</span> <span class="attr">value</span>=<span class="value">"tools"</span><span class="tag">&gt;</span>Tools<span class="tag">&lt;/option&gt;</span>
+<span class="tag">&lt;/select&gt;</span>
+<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"message"</span><span class="tag">&gt;</span>Message<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;textarea</span> <span class="attr">id</span>=<span class="value">"message"</span> <span class="attr">name</span>=<span class="value">"message"</span> <span class="attr">rows</span>=<span class="value">"4"</span><span class="tag">&gt;&lt;/textarea&gt;</span></code></pre>
+        </section>
+
+        <section class="lesson" id="validation">
+          <div class="lesson-head">
+            <span class="lesson-number">08</span>
+            <h2>Form validation attributes</h2>
+          </div>
+          <p>
+            HTML can check common input rules before submission.
+            <code>required</code> demands a value; <code>minlength</code> and
+            <code>maxlength</code> limit text length; <code>min</code> and
+            <code>max</code> limit numeric or date values;
+            <code>type="email"</code> checks for an email-shaped value.
+          </p>
+          <pre><code><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"email-address"</span><span class="tag">&gt;</span>Email address<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"email-address"</span> <span class="attr">name</span>=<span class="value">"email"</span>
+  <span class="attr">type</span>=<span class="value">"email"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+<span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="value">"age"</span><span class="tag">&gt;</span>Age<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">id</span>=<span class="value">"age"</span> <span class="attr">name</span>=<span class="value">"age"</span>
+  <span class="attr">type</span>=<span class="value">"number"</span> <span class="attr">min</span>=<span class="value">"13"</span> <span class="attr">max</span>=<span class="value">"120"</span><span class="tag">&gt;</span></code></pre>
+          <p class="tip">
+            Browser validation improves convenience, but it can be bypassed.
+            Always validate submitted data on the server too.
+          </p>
+        </section>
+
+        <section class="lesson" id="div-span">
+          <div class="lesson-head">
+            <span class="lesson-number">09</span>
+            <h2><code>&lt;div&gt;</code> and <code>&lt;span&gt;</code></h2>
+          </div>
+          <p>
+            <code>&lt;div&gt;</code> is a generic block container;
+            <code>&lt;span&gt;</code> is a generic inline container. Use them
+            when you need a hook for CSS or scripting and no more meaningful
+            HTML element fits.
+          </p>
+          <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="value">"notice"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Water the <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="value">"highlight"</span><span class="tag">&gt;</span>new seedlings<span class="tag">&lt;/span&gt;</span> today.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+          <p class="tip">
+            If an element has a specific meaning, such as
+            <code>&lt;nav&gt;</code> or <code>&lt;article&gt;</code>, choose
+            that instead of a generic <code>&lt;div&gt;</code>.
+          </p>
+        </section>
+
+        <section class="lesson" id="semantic-html">
+          <div class="lesson-head">
+            <span class="lesson-number">10</span>
+            <h2>Semantic HTML</h2>
+          </div>
+          <p>
+            Semantic HTML uses elements that describe the purpose of their
+            content. A <code>&lt;button&gt;</code> is for an action; a
+            <code>&lt;nav&gt;</code> is for navigation. Clear semantics improve
+            accessibility, search understanding, and maintainability.
+          </p>
+          <p>
+            Choose an element for what the content means, not how you want it to
+            look. Use CSS to change appearance without changing meaning.
+          </p>
+        </section>
+
+        <section class="lesson" id="landmarks">
+          <div class="lesson-head">
+            <span class="lesson-number">11</span>
+            <h2>Page landmarks</h2>
+          </div>
+          <p>
+            These elements describe common regions of a page. Use each for its
+            purpose; a page can have multiple <code>&lt;section&gt;</code> or
+            <code>&lt;article&gt;</code> elements, but usually has one main
+            <code>&lt;main&gt;</code> region.
+          </p>
+          <div class="columns">
+            <div class="sample">
+              <p>
+                <code>&lt;header&gt;</code> introductory content for a page or
+                region
+              </p>
+              <p><code>&lt;nav&gt;</code> a group of navigation links</p>
+              <p><code>&lt;main&gt;</code> the page's primary content</p>
+              <p>
+                <code>&lt;section&gt;</code> a themed section, usually with a
+                heading
+              </p>
+            </div>
+            <div class="sample">
+              <p>
+                <code>&lt;article&gt;</code> self-contained content that can
+                stand alone
+              </p>
+              <p><code>&lt;aside&gt;</code> related, secondary content</p>
+              <p>
+                <code>&lt;footer&gt;</code> closing information for a page or
+                region
+              </p>
+            </div>
+          </div>
+          <pre><code><span class="tag">&lt;header&gt;</span><span class="tag">&lt;h1&gt;</span>Garden Journal<span class="tag">&lt;/h1&gt;</span><span class="tag">&lt;/header&gt;</span>
+<span class="tag">&lt;nav</span> <span class="attr">aria-label</span>=<span class="value">"Main navigation"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/nav&gt;</span>
+<span class="tag">&lt;main&gt;</span>
+  <span class="tag">&lt;article&gt;</span>...<span class="tag">&lt;/article&gt;</span>
+  <span class="tag">&lt;aside&gt;</span>Related reading...<span class="tag">&lt;/aside&gt;</span>
+<span class="tag">&lt;/main&gt;</span>
+<span class="tag">&lt;footer&gt;</span>Contact and copyright...<span class="tag">&lt;/footer&gt;</span></code></pre>
+        </section>
+
+        <section class="lesson" id="media">
+          <div class="lesson-head">
+            <span class="lesson-number">12</span>
+            <h2>Audio and video</h2>
+          </div>
+          <p>
+            Use <code>&lt;audio&gt;</code> or <code>&lt;video&gt;</code> with
+            the <code>controls</code> attribute so visitors can play, pause, and
+            adjust playback. A nested <code>&lt;source&gt;</code> gives the
+            browser a file and media type; fallback text helps when media is
+            unsupported.
+          </p>
+          <pre><code><span class="tag">&lt;audio</span> <span class="attr">controls</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"media/birds.mp3"</span> <span class="attr">type</span>=<span class="value">"audio/mpeg"</span><span class="tag">&gt;</span>
+  Your browser cannot play this audio.
+<span class="tag">&lt;/audio&gt;</span>
+
+<span class="tag">&lt;video</span> <span class="attr">controls</span> <span class="attr">width</span>=<span class="value">"640"</span>
+  <span class="attr">poster</span>=<span class="value">"images/garden-preview.jpg"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"media/garden.mp4"</span> <span class="attr">type</span>=<span class="value">"video/mp4"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;track</span> <span class="attr">kind</span>=<span class="value">"captions"</span> <span class="attr">src</span>=<span class="value">"media/garden-en.vtt"</span>
+    <span class="attr">srclang</span>=<span class="value">"en"</span> <span class="attr">label</span>=<span class="value">"English"</span><span class="tag">&gt;</span>
+  Your browser cannot play this video.
+<span class="tag">&lt;/video&gt;</span></code></pre>
+          <p class="tip">
+            Provide captions for video with speech, and make sure media has
+            suitable alternatives. The example files must exist at those paths.
+          </p>
+        </section>
+
+        <section class="lesson" id="iframe">
+          <div class="lesson-head">
+            <span class="lesson-number">13</span>
+            <h2><code>&lt;iframe&gt;</code></h2>
+          </div>
+          <p>
+            An iframe embeds another webpage inside yours. Give it a descriptive
+            <code>title</code>, set reasonable dimensions, and only embed
+            content you trust. The external site may apply its own privacy and
+            security rules.
+          </p>
+          <pre><code><span class="tag">&lt;iframe</span>
+  <span class="attr">src</span>=<span class="value">"https://www.youtube.com/embed/VIDEO_ID"</span>
+  <span class="attr">title</span>=<span class="value">"A short tour of the garden"</span>
+  <span class="attr">width</span>=<span class="value">"560"</span> <span class="attr">height</span>=<span class="value">"315"</span>
+  <span class="attr">loading</span>=<span class="value">"lazy"</span>
+  <span class="attr">allowfullscreen</span><span class="tag">&gt;&lt;/iframe&gt;</span></code></pre>
+          <p class="tip">
+            Replace <code>VIDEO_ID</code> with a real video's embed ID. For
+            embeds that do not need scripts or forms, consider a carefully
+            configured <code>sandbox</code> attribute.
+          </p>
+        </section>
+
+        <section class="lesson" id="entities">
+          <div class="lesson-head">
+            <span class="lesson-number">14</span>
+            <h2>HTML entities</h2>
+          </div>
+          <p>
+            Entities let you write characters that HTML would otherwise treat as
+            markup, or characters that are awkward to type. They begin with
+            <code>&amp;</code> and end with <code>;</code>.
+          </p>
+          <div class="columns">
+            <div class="sample">
+              <p><code>&amp;amp;</code> displays as &amp;</p>
+              <p><code>&amp;lt;</code> displays as &lt;</p>
+            </div>
+            <div class="sample">
+              <p><code>&amp;gt;</code> displays as &gt;</p>
+              <p><code>&amp;quot;</code> displays as &quot;</p>
+            </div>
+          </div>
+          <p>
+            For example, to show the text <code>&lt;p&gt;</code> on a page
+            instead of creating a paragraph, write
+            <code>&amp;lt;p&amp;gt;</code> in your HTML.
+          </p>
+        </section>
+
+        <section class="lesson" id="id-class">
+          <div class="lesson-head">
+            <span class="lesson-number">15</span>
+            <h2><code>id</code> and <code>class</code></h2>
+          </div>
+          <p>
+            <code>id</code> identifies one unique element on a page. It can be a
+            link target or a CSS/JavaScript hook. <code>class</code> groups
+            elements that share a style or behavior; multiple elements can share
+            a class, and one element can have several classes.
+          </p>
+          <pre><code><span class="tag">&lt;h2</span> <span class="attr">id</span>=<span class="value">"spring"</span><span class="tag">&gt;</span>Spring plants<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="value">"note highlighted"</span><span class="tag">&gt;</span>Plant after the last frost.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="value">"#spring"</span><span class="tag">&gt;</span>Jump to spring plants<span class="tag">&lt;/a&gt;</span></code></pre>
+          <p class="tip">
+            IDs must be unique within the document. Class names are
+            case-sensitive and should describe a useful role, not a temporary
+            visual detail.
+          </p>
+        </section>
+
+        <section class="lesson" id="paths">
+          <div class="lesson-head">
+            <span class="lesson-number">16</span>
+            <h2>File paths and folder structure</h2>
+          </div>
+          <p>
+            Keep related files in clearly named folders. A path tells the
+            browser where a file lives relative to the current page, or at an
+            absolute web address.
+          </p>
+          <pre class="path-tree"><code><span class="folder">my-site/</span>
+├── <span class="file">index.html</span>
+├── <span class="folder">html-basics/</span>
+│   └── <span class="file">index.html</span>
+├── <span class="folder">html-intermediate/</span>
+│   └── <span class="file">index.html</span>
+├── <span class="folder">images/</span>
+│   └── <span class="file">garden.jpg</span>
+└── <span class="folder">media/</span>
+    └── <span class="file">birds.mp3</span></code></pre>
+          <h3>Relative path examples</h3>
+          <p>
+            From the top-level <code>index.html</code>, link to the beginner
+            lesson with <code>html-basics/index.html</code>. From inside
+            <code>html-intermediate/index.html</code>, go up one folder with
+            <code>../</code>, then into the basics folder:
+            <code>../html-basics/index.html</code>.
+          </p>
+          <p>
+            From the intermediate page, an image in the shared images folder is
+            <code>../images/garden.jpg</code>. A file in a child folder uses its
+            folder name, such as <code>media/birds.mp3</code> when the media
+            folder is beside the current page.
+          </p>
+          <pre><code><span class="comment">&lt;!-- Link between the two lesson folders --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="value">"../html-basics/index.html"</span><span class="tag">&gt;</span>Review HTML basics<span class="tag">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- Image in a shared sibling folder --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="value">"../images/garden.jpg"</span>
+  <span class="attr">alt</span>=<span class="value">"A garden in spring"</span><span class="tag">&gt;</span></code></pre>
+          <p class="tip">
+            Paths are written from the file containing the link. Use forward
+            slashes (<code>/</code>), keep capitalization consistent, and avoid
+            spaces in file and folder names when you can.
+          </p>
+          <p>
+            <a href="../html-basics/index.html"
+              >Go back to Level 1: HTML Basics</a
+            >
+          </p>
+        </section>
+
+        <aside class="closing">
+          <strong>Good HTML is clear HTML</strong>
+          <p>
+            Choose elements for their meaning, label every form control,
+            describe media for people who cannot perceive it, and keep related
+            project files organized.
+          </p>
+        </aside>
+        <footer>FIELD NOTES / INTERMEDIATE HTML / END OF LESSON 02</footer>
+      </main>
+    </div>
+  </body>
+</html>
